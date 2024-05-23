@@ -1,13 +1,11 @@
 import "./Home.css";
 import Header from "../../components/Header/Header";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { getStockSymbols, getQuoteData, getCompanyProfile } from "./../../utils/api";
 
 const Home = ({ addToWishlist }) => {
     const [stocks, setStocks] = useState([]);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
   
     useEffect(() => {
       const storedStockData = localStorage.getItem("stockData");
@@ -46,16 +44,11 @@ const Home = ({ addToWishlist }) => {
       }
     };
   
-    const handleWishlist = () => {
-      navigate("/wishlist");
-    };
-  
   return (
     <div className="home-container">
       <Header />
       <div>
       <h1>Stock List</h1>
-      <button onClick={handleWishlist}>Go to Wishlist</button>
       {loading ? (
         <p>Loading...</p>
       ) : (
