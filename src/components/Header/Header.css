@@ -16,9 +16,9 @@
   font-weight: 600;
   cursor: pointer;
 }
-.header-title a{
-        color: inherit;
-        text-decoration: none;
+.header-title a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .header-link-container {

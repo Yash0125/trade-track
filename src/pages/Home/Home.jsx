@@ -62,12 +62,24 @@ const Home = ({ addToWishlist }) => {
       <div className="card-container">
         {stocks.map((stock) => (
           <div key={stock.symbol} className="stock-card">
-            <p className="stock-title"><span className="title-left">Name:</span> {stock.name?stock.name: stock.symbol}</p>
+            <p className="stock-title">
+              <span className="title-left">Name:</span>{" "}
+              {stock.name ? stock.name : stock.symbol}
+            </p>
             <hr />
-            <p className="stock-description"><span className="stock-left">Symbol:</span> {stock.symbol}</p>
-            <p className="stock-description"><span className="stock-left">Price:</span> ${stock.c}</p>
-            <p className="stock-description"><span className="stock-left">Close Price:</span> ${stock.pc}</p>
-            <button className="wishlist-btn" onClick={() => addToWishlist(stock)}>
+            <p className="stock-description">
+              <span className="stock-left">Symbol:</span> {stock.symbol}
+            </p>
+            <p className="stock-description">
+              <span className="stock-left">Price:</span> ${stock.c}
+            </p>
+            <p className="stock-description">
+              <span className="stock-left">Close Price:</span> ${stock.pc}
+            </p>
+            <button
+              className="wishlist-btn"
+              onClick={() => addToWishlist(stock)}
+            >
               Add to Wishlist
             </button>
           </div>

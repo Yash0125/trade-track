@@ -8,27 +8,37 @@ const Wishlist = ({ wishlist, removeFromWishlist }) => {
   const handleHome = () => {
     navigate("/");
   };
-  
+
   return (
-    <div>
+    <div className="wishlist-container">
       <Header />
-      <h1>Wishlist</h1>
-      <button onClick={handleHome}>Home</button>
+      <h1 className="wishlist-title">Wishlist</h1>
       {wishlist.length === 0 ? (
-        <p>No items in wishlist</p>
+        <div className="items-container">
+          <p className="items-text">No items in wishlist</p>
+        </div>
       ) : (
-        wishlist.map((stock, index) => (
-          <div key={index} className="wishlist-card">
-            <h2>
-              {stock.name} ({stock.symbol})
-            </h2>
-            <p>Current Price: ${stock.c}</p>
-            <p>Close Price: ${stock.pc}</p>
-            <button onClick={() => removeFromWishlist(stock)}>
-              Remove from Wishlist
-            </button>
-          </div>
-        ))
+        <div className="wishlist-card-container">
+          {wishlist.map((stock, index) => (
+            <div key={index} className="wishlist-card">
+              <h2 className="wishlist-card-title">
+                {stock.name} ({stock.symbol})
+              </h2>
+              <p className="stock-description">
+                <span className="stock-left">Current Price: </span>${stock.c}
+              </p>
+              <p className="stock-description">
+                <span className="stock-left">Close Price: </span>${stock.pc}
+              </p>
+              <button
+                className="remove-wishlist-btn"
+                onClick={() => removeFromWishlist(stock)}
+              >
+                Remove from Wishlist
+              </button>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
