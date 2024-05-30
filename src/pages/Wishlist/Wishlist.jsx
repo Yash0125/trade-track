@@ -1,13 +1,8 @@
 import React from "react";
 import "./Wishlist.css";
-import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 
 const Wishlist = ({ wishlist, removeFromWishlist }) => {
-  const navigate = useNavigate();
-  const handleHome = () => {
-    navigate("/");
-  };
 
   return (
     <div className="wishlist-container">
